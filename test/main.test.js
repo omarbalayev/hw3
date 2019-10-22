@@ -231,3 +231,52 @@ describe('sqRoot', function() {
         assert.deepEqual(expected, actual);
     });
 });
+
+describe('sqRoot2', function() {
+    it('should return 8 - decimal value - for square root of 64', function() {
+        const number = 64;
+        const expected = 8;
+
+        const actual = squareRootB(number);
+
+        assert.deepEqual(expected, actual);
+    });
+});
+
+
+describe('nFact', function() {
+    it('Should return 5040 for factorial 7', function() {
+        const number = 7;
+        const expected = 5040;
+
+        const actual = factN(number);
+
+        assert.deepEqual(expected, actual)
+    });
+});
+
+//sum of digits of number
+describe('sumNums', function() {
+    it('Should return 10 for number 19', function() {
+        const number = 19;
+        const expected = 10;
+
+        const actual = sumNums(number);
+
+        assert.deepEqual(expected, actual)
+    });
+});
+
+//mirror given number
+
+describe('mirrorNum', function() {
+    it('should return 654 (mirrored num) for 456', function() {
+        const number = 456;
+        const expected = 654;
+        
+        const actual = mirrorNum(number);
+
+        assert.deepEqual(expected, actual);
+    });
+});
+

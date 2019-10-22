@@ -1,6 +1,6 @@
 //Если а – четное посчитать а*б, иначе а+б;
 const oddOrEven = (a,b) => {
-    if (a%2===0) {
+    if (a%2===0) {    // if(a%2a ? : a*b : a+b )
         return a*b;
     } else {
         return a+b;
@@ -128,18 +128,109 @@ number.oninput=function(){
 /*create custom square root function*/ 
 function squareRoot(number){
     
-    let square = 1, i=0;
+    let square = 1;
     while(true)
     {
-        i = i + 1;
         square = (number / square + square) / 2;
-
-    if (i === number + 1) { 
+        console.log(square) // i called 119 raz. kak mne ostanovit koqda square == (number/square)
+        
+    if (number+1 > square*square) { 
         break; 
      }
     };
-    console.log(square);
-    const result = (`${square}`).split('.');
-    console.log(Number(result[0]))
-    return Number(result[0]);
+    console.log(square); //resultat kornya
+    const result = (`${square}`).split('.'); // ispolzuya split sozdali array iz kornya. 11.25 > [11,25]
+    console.log(Number(result[0])) // proverka otveta na console
+    return parseInt(result[0]); // obratna daem otvet
 };
+
+
+
+// // //binary search
+   
+       
+
+
+function squareRootB(number) {
+            
+    let low = 0;
+    let high = number;
+    let mid = number;
+    
+    while (high - low >= 1) {
+        mid = (high - low) / 2;
+
+        if (mid ** 2 > number) {
+            high = mid;
+        } else if (mid ** 2 < number) {
+            low = mid;
+        } else {
+            break;
+        }         
+    };
+
+    return mid;
+};
+
+//didnt work.
+// sqrtB2 = (number) => {
+//     let low = 0;
+//     let high = number;
+
+//     while (low<=high) {
+//          let mid = (low + (high-low)) / 2;
+//          let sqrt;
+//         debugger;
+//          if (mid*mid === number) {
+//             return mid;
+//          };
+
+//          if (mid*mid<number) {
+//              low = mid+1;
+
+//          } else {
+//              high = mid-1;
+//          };        
+//      };  return mid;
+//  };
+
+
+
+// Factorial
+
+function factN(number) {
+    let sum = number;
+    for (let i=1; i<number; i++ ) {
+        sum = sum * (number-i)
+    };
+    return sum;
+};
+
+//summ of numerals of number
+
+sumNums = (number) => {
+    let output = Array.from(number.toString()).map(Number);
+    let sum = 0;
+    for (let i=0; i<output.length; i++) {
+        sum += output[i];
+    };
+    return sum;
+};
+
+// mirrored number
+
+mirrorNum = (number) => {
+    let arr = ((number.toString()).split(''));
+    let mirArr = [];
+    let result;
+
+    for (let i = 0; i<arr.length; i++) {
+        mirArr.unshift(arr[i]);
+    }
+    
+    result = parseInt(mirArr.join(''));
+    return result;
+};
+
+
+
